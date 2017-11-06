@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app='testClickModule'>
+<head>
+    <meta charset="UTF-8">
+    <title>Testing clicking for a random number</title>
+</head>
+<body>
+    <div ng-controller="myController">
+        <br />
+        {{num}}
+        <br/>
+        <input type="button" value="Click for your lucky number" ng-click="getNumber()"> 
+        <br>
+    </div>
+    <!-- Link to AngularJS: -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js">
+    </script>
+    <!-- Optional Model and controller config goes here: -->
+    <script>
+        var myApp = angular.module('testClickModule', []);
+        myApp.controller('myController', function ($scope) {
+            //$scope.num = 0;
+            $scope.getNumber = function () {
+                var items = [523, 3452, 334, 31, 5346];
+                // $scope.num = (Math.ceil(Math.random() * 9));
+                $scope.num = items[Math.floor(Math.random() * items.length - 1)];
+            };
+        });
+    </script>
+</body>
+</html>
